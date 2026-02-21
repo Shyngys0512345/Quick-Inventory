@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { AppProvider, useApp } from './context/AppContext';
+import { Layout } from './components/Layout';
+import { LoginPage, SignupPage } from './components/Auth';
+import { Dashboard } from './components/Dashboard';
+import { ProductManagement } from './components/ProductManagement';
+import { DailySales } from './components/DailySales';
+import { ProfilePage } from './components/ProfilePage';
 
-function App() {
+const AppContent: React.FC = () => {
+  const { currentPage, user } = useApp();
+
+  if (!user) {
+    if (currentPage === 'signup') {
+      return <SignupPage />;
+    }
+    return <LoginPage />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      {currentPage === 'dashboard' && <Dashboard />}
+      {currentPage === 'products' && <ProductManagement />}
+      {currentPage === 'sales' && <DailySales />}
+      {currentPage === 'profile' && <ProfilePage />}
+    </Layout>
   );
-}
+};
+
+const App: React.FC = () => {
+  return (
+    <AppProvider>
+      <AppContent />
+    </AppProvider>
+  );
+};
 
 export default App;
