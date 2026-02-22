@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
 import { Card, Button, Input } from './ui/Shared';
-import { ShoppingCart, Plus, CheckCircle, AlertTriangle } from 'lucide-react';
+import { ShoppingCart, CheckCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export const DailySales: React.FC = () => {

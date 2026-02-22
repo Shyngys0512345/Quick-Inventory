@@ -53,7 +53,7 @@ export const LoginPage: React.FC = () => {
             <div className="space-y-1">
               <div className="flex justify-between items-center">
                 <label className="text-sm font-medium text-gray-700">Password</label>
-                <a href="#" className="text-sm text-blue-600 hover:text-blue-700">Forgot password?</a>
+                <button type="button" className="text-sm text-blue-600 hover:text-blue-700">Forgot password?</button>
               </div>
               <Input 
                 type="password" 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { Card, Button, Input } from './ui/Shared';
-import { User, Mail, Shield, LogOut } from 'lucide-react';
+import { Shield, LogOut } from 'lucide-react';
 
 export const ProfilePage: React.FC = () => {
   const { user, logout } = useApp();
